@@ -10,13 +10,14 @@ section{
     background-color: #3895ac88;
     width: 100%;
     color: #c56dab;
-    padding-bottom: 15px;
+    padding-bottom: 4%;
 }
 article{
     background-color: #27214e;
     width: 90%;
     padding: 1%;
     margin-right: 4%;
+    margin-left: 4%;
 }
 h1{
     text-align: center;
@@ -40,7 +41,9 @@ img{
     max-width: 100%;
     border: 2px solid #c56dab;
     border-radius: 10px;
-    margin-left: 5%;
+    margin-left: 4%;
+    margin-bottom: 2%;
+    margin-top: 2%;
 }
 a{
     font-family: WaltographRegular;
