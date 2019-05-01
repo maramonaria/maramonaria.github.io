@@ -38,6 +38,8 @@ main{
 section{
     background-color: #4182ad;
     width: 32%;
+    height: 30em;
+    overflow: auto;
     float:left;
     color: #c56dab;
     padding-bottom: 2%;
@@ -47,14 +49,14 @@ section.middle{
     margin-right: 2%;
 }
 article{
-    background-color: #27214e;
+    background-color: #594186;
     width: 90%;
     padding: 1%;
     margin-right: 4%;
     margin-left: 4%;
 }
 section article:nth-of-type(odd){
-    color: #594186;
+    color: #27214e;
 }
 header h1{
     margin-left: 42%;
