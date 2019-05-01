@@ -7,7 +7,29 @@ header{
     width: 100%;
 }
 nav{
-    font-size: 2.5em;
+    margin-left: 5%;
+    float: left;
+    margin-top: -2%;
+}
+nav li{
+    font-size: 1.8em;
+    line-height: 1.1;
+    display: block;
+    letter-spacing: -.03333em;
+    padding: .25em 0 0 10px;
+    border-left: 10px solid #f0ffff;
+}
+nav li:hover{
+    border-color: #c56dab;
+}
+aside{
+    background-color: #594186;
+    width: 15%;
+    position: fixed;
+    padding: 1%;
+}
+aside:hover{
+    width:17.5%;
 }
 main{
     width: 60%;
@@ -15,9 +37,14 @@ main{
 }
 section{
     background-color: #4182ad;
-    width: 100%;
+    width: 32%;
+    float:left;
     color: #c56dab;
-    padding-bottom: 4%;
+    padding-bottom: 2%;
+}
+section.middle{
+    margin-left: 2%;
+    margin-right: 2%;
 }
 article{
     background-color: #27214e;
@@ -26,9 +53,12 @@ article{
     margin-right: 4%;
     margin-left: 4%;
 }
-h1{
-    text-align: center;
-    font-size: 4em;
+section article:nth-of-type(odd){
+    color: #594186;
+}
+header h1{
+    margin-left: 42%;
+    font-size: 6em;
     text-shadow: 3px 1px #c56dab;
 }
 h2{
@@ -39,15 +69,15 @@ h3{
     font-size: 2em;
 }
 p{
-    font-size: 1em;
+    font-size: 0.8em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #3895ac;
 }
 img{
-    height: 300px;
-    max-width: 100%;
+    max-width: 90%;
     border: 2px solid #c56dab;
     border-radius: 10px;
+    margin-right: 4%;
     margin-left: 4%;
     margin-bottom: 2%;
     margin-top: 2%;
@@ -56,4 +86,8 @@ a{
     font-family: WaltographRegular;
     color: #ff44b1;
     font-size: 1.5em;
+}
+footer{
+    width: 100%;
+    clear: both;
 }
