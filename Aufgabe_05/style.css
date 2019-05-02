@@ -12,7 +12,7 @@ nav{
     margin-top: -2%;
 }
 nav li{
-    font-size: 1.8em;
+    font-size: 2em;
     line-height: 1.1;
     display: block;
     letter-spacing: -.03333em;
@@ -37,16 +37,18 @@ main{
 }
 section{
     background-color: #4182ad;
-    width: 32%;
+    width: 23.5%;
     height: 30em;
     overflow: auto;
     float:left;
     color: #c56dab;
     padding-bottom: 2%;
-}
-section.middle{
     margin-left: 2%;
-    margin-right: 2%;
+    margin-bottom:2%;
+}
+section:first-of-type,section:nth-of-type(5){
+    margin-left: 0%;
+    clear;
 }
 article{
     background-color: #594186;
@@ -68,7 +70,7 @@ h2{
     color: #ff44b1;
 }
 h3{
-    font-size: 2em;
+    font-size: 1.6em;
 }
 p{
     font-size: 0.8em;
