@@ -57,8 +57,8 @@ article{
     margin-right: 4%;
     margin-left: 4%;
 }
-section article:nth-of-type(odd){
-    color: #27214e;
+article:nth-of-type(odd){
+    color: #aa8941;
 }
 header h1{
     margin-left: 42%;
@@ -66,8 +66,9 @@ header h1{
     text-shadow: 3px 1px #c56dab;
 }
 h2{
+    text-align: center;
     font-size: 3em;
-    color: #ff44b1;
+    color: #27214e;
 }
 h3{
     font-size: 1.6em;
