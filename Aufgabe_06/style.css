@@ -105,7 +105,7 @@ footer{
     width: 100%;
     clear: both;
 }
-@media screen and (min-width: 800px){
+@media screen and (min-width: 1200px){
     main{
         width: 80%;
         margin-left: 20%;
