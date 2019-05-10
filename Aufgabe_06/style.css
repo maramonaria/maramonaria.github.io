@@ -1,0 +1,159 @@
+body{
+    background-color: #27214e;
+    font-family: WaltographRegular;
+    color: #f0ffff;
+}
+header{
+    width: 100%;
+}
+nav{
+    margin-left: 2%;
+    float: left;
+    margin-top: -2%;
+    height: 3em;
+    overflow: hidden;
+}
+nav:hover{
+    height: 12em;
+}
+nav li{
+    font-size:3em;
+    line-height: 1.1;
+    display: block;
+    letter-spacing: -.03333em;
+}
+.mi{
+    font-size: 2em;
+    line-height: 1.1;
+    display: block;
+    letter-spacing: -.03333em;
+    padding: .25em 0 0 10px;
+    border-left: 10px solid #f0ffff;
+}
+nav li:hover{
+    border-color: #c56dab;
+}
+div {
+    width: 35px;
+    height: 5px;
+    background-color: #f0ffff;
+    margin: 6px 0;
+  }
+aside{
+    background-color: #594186;
+    width: 24%;
+    position: fixed;
+    padding: 1%;
+    margin-top: 3em;
+}
+aside:hover{
+    width: 28%;
+}
+main{
+    width: 70%;
+    margin-left: 30%;
+    margin-top: 7em;
+}
+section{
+    background-color: #4182ad;
+    width: 100%;
+    height: 30em;
+    overflow: auto;
+    color: #c56dab;
+    padding-bottom: 2%;
+    margin-left: 2%;
+    margin-bottom:2%;
+    clear;
+}
+article{
+    background-color: #594186;
+    width: 90%;
+    padding: 1%;
+    margin-right: 4%;
+    margin-left: 4%;
+}
+article:nth-of-type(odd){
+    color: #aa8941;
+}
+header h1{
+    margin-left: 42%;
+    font-size: 6em;
+    text-shadow: 3px 1px #c56dab;
+}
+h2{
+    text-align: center;
+    font-size: 3em;
+    color: #27214e;
+}
+h3{
+    font-size: 1.49em;
+}
+p{
+    font-size: 0.8em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #3895ac;
+}
+img{
+    max-width: 90%;
+    border: 2px solid #c56dab;
+    border-radius: 10px;
+    margin-right: 4%;
+    margin-left: 4%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+a{
+    font-family: WaltographRegular;
+    color: #ff44b1;
+    font-size: 1.5em;
+}
+footer{
+    width: 100%;
+    clear: both;
+}
+@media screen and (min-width: 600px){
+    main{
+        width: 60%;
+        margin-left: 20%;
+    }
+    section{
+        width: 49%;
+        float:left;
+        margin-left: 2%;
+    }
+    section:first-of-type,section:nth-of-type(2n+1){
+        margin-left: 0%;
+    }
+    aside{
+        width: 15%;
+    }
+    aside:hover{
+        width: 17.5%;
+    }
+}
+@media screen and (min-width: 1200px){
+    main{
+        width: 60%;
+        margin-left: 20%;
+    }
+    section{
+        width: 23.5%;
+        float:left;
+        margin-left: 2%;
+    }
+
+    section:nth-of-type(2n+1){
+        margin-left: 2%;
+    }
+
+    section:first-of-type,section:nth-of-type(4n+1){
+        margin-left: 0%;
+        clear:both;
+    }
+    aside{
+        width: 15%;
+    }
+    aside:hover{
+        width: 17.5%;
+    }
+}
