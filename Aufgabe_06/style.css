@@ -16,16 +16,13 @@ nav{
 nav:hover{
     height: 12em;
 }
-nav li:hover{
-    border-color: #c56dab;
-}
-div {
+nav li div {
     width: 25px;
     height: 5px;
     background-color: #f0ffff;
     margin-bottom: 5px;
 }
-#burger{
+nav ul li:first-child{
     font-size:3em;
     line-height: 1.1;
     display: block;
@@ -33,10 +30,10 @@ div {
     width: 25px;
     transition: transform 0.8s;
 }
-#burger:hover{
+nav ul li:first-child:hover{
     transform: rotate(180deg);
 }
-.mi{
+.menuitem{
     background-color: #4182ad;
     width: 6em;
     margin-bottom: 0.2em;
@@ -46,6 +43,9 @@ div {
     letter-spacing: -.03333em;
     padding: .25em 0 0 10px;
     border-left: 10px solid #f0ffff;
+}
+.menuitem:hover{
+    border-color: #c56dab;
 }
 aside{
     background-color: #594186;
@@ -105,7 +105,7 @@ img{
     margin-bottom: 2%;
     margin-top: 2%;
 }
-a{
+footer a{
     font-family: WaltographRegular;
     color: #ff44b1;
     font-size: 1.5em;
@@ -114,6 +114,7 @@ footer{
     width: 100%;
     clear: both;
     padding-bottom: 2%;
+    text-align: center;
 }
 @media screen and (min-width: 63em){
     main{
