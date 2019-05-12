@@ -34,7 +34,7 @@ nav ul li:first-child:hover{
     transform: rotate(180deg);
 }
 .menuitem{
-    background-color: #4182ad;
+    background-color: #594186;
     width: 6em;
     margin-bottom: 0.2em;
     font-size: 2em;
@@ -43,6 +43,9 @@ nav ul li:first-child:hover{
     letter-spacing: -.03333em;
     padding: .25em 0 0 10px;
     border-left: 10px solid #f0ffff;
+}
+.menuitem a{
+    color: #aa8941;
 }
 .menuitem:hover{
     border-color: #c56dab;
@@ -129,7 +132,7 @@ footer{
     }
     aside{
         background-color: #594186;
-        width: 15%;
+        width: 15.5%;
         position: fixed;
         padding: 1%;
         margin-top: 3em;
