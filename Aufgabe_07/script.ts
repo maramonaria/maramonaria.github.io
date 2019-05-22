@@ -4,6 +4,9 @@ restlicheAufgabenpunkte();
 // mehrere Funktionen folgend (Mindestanforderung 2)
 window.onload = function(){ // Aufruf nicht leerer Funktion nach Laden des Fensters (Mindestanforderung 3)
     document.getElementById("bilderbutton").addEventListener("click", onClick); // Event-Listener, Button ändert auf Klick seinen Inhalt (Mindestanforderung 4)
+
+    //Klasse ändern über Typescript (Mindestanforderung 5)
+    document.getElementById("ananas").className = "world";
 }
 
 function onClick(){
@@ -60,9 +63,6 @@ function newHistoryElem(question : string, answer : string){
 }
 
 function restlicheAufgabenpunkte() {
-    // Klasse verändern (Mindestanforderung 5) FUKNTIONIERT NOCH NICHT
-    // document.getElementById("ananas").className = "world";
-
     // "string" und "number" in Funktion benutzen (Mindestanforderung 6)
     let num1 : number = 42;
     let num2 : number = 84;
