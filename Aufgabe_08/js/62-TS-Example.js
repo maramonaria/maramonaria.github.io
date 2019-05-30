@@ -138,6 +138,15 @@ function fightMonster(_index) {
     console.log("Das Monster weigert sich zu verschwinden."); // Wird nächste Stunde erweitert.
     playerXP += monsterArray[_index - 1].monsterExperience; // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
     updatePlayerLevel();
+    defeatMonster(_index);
+}
+function defeatMonster(_index) {
+    //monsterArray.splice(_index -1,1);
+    //console.log(monsterArray);
+    //document.getElementById("monster"+_index).innerHTML = "";
+    monsterArray = [];
+    console.log(monsterArray);
+    document.getElementById(monsterHolder).innerHTML = "";
 }
 // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
 function updatePlayerLevel() {
