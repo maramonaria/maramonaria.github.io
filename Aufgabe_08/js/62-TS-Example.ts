@@ -221,10 +221,11 @@ function defeatMonster(_index : number)
     //monsterArray.splice(_index -1,1);
     //console.log(monsterArray);
     //document.getElementById("monster"+_index).innerHTML = "";
-    
+    let defeatedMonster : string = monsterArray[_index -1].monsterName;
     monsterArray = [];
     console.log(monsterArray);
     document.getElementById(monsterHolder).innerHTML = "";
+    window.alert("Du hast " + defeatedMonster + " besiegt und alle seine Monsterfreunde in die Flucht geschlagen!");
 }
 
 

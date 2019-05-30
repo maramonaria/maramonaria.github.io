@@ -144,9 +144,11 @@ function defeatMonster(_index) {
     //monsterArray.splice(_index -1,1);
     //console.log(monsterArray);
     //document.getElementById("monster"+_index).innerHTML = "";
+    let defeatedMonster = monsterArray[_index - 1].monsterName;
     monsterArray = [];
     console.log(monsterArray);
     document.getElementById(monsterHolder).innerHTML = "";
+    window.alert("Du hast " + defeatedMonster + " besiegt und alle seine Monsterfreunde in die Flucht geschlagen!");
 }
 // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
 function updatePlayerLevel() {
