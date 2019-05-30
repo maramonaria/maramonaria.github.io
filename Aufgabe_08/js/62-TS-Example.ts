@@ -221,7 +221,7 @@ function defeatMonster(_index : number)
     //monsterArray.splice(_index -1,1);
     //console.log(monsterArray);
     //document.getElementById("monster"+_index).innerHTML = "";
-
+    
     monsterArray = [];
     console.log(monsterArray);
     document.getElementById(monsterHolder).innerHTML = "";
