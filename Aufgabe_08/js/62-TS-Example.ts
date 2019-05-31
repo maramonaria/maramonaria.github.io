@@ -180,8 +180,8 @@ function generateMonsterHitPoints() : number
 // Liefert eine variierende Zahl zurück.
 function generateMonsterXP() : number
 {
-    // Diese Funktion gibt eine zufällige ganze Zahl (zwischen 0 und 350) + 100 zurück.
-    let tempMonsterXP : number = 100 + getRNGNumber(350);
+    // Diese Funktion gibt eine zufällige ganze Zahl (zwischen 0 und 450) + 100 zurück.
+    let tempMonsterXP : number = 100 + getRNGNumber(450);
     return tempMonsterXP;
 }
 
