@@ -26,7 +26,7 @@ window.onload = function () {
     document.getElementById("monsterSpawner").addEventListener("click", generateMonster, false);
     updatePlayerLevel(); // Zu Anfang wird durch eine Funktion ein HTML-Element mit Inhalt befüllt.
 };
-//console.log(document.getElementById("monsterSpawner").innerHTML);
+console.log("" + document.getElementById("monsterSpawner").innerHTML);
 // Die Hauptfunktion, um ein Monster zu erstellen. Wird von einem Button ausgerufen.
 // Generiert ein neues Monster. Dieses wird zu dem Monster-Array hinzugefügt.
 // Ruft eine Funktion auf, welche dann das entsprechende HTML erzeugt.
@@ -46,6 +46,7 @@ function generateMonster() {
         monsterWeapon: newMonsterWeapon
     };
     monsterArray.push(newMonster); // Monster wird erst in diesem Schritt zu dem Array hinzugefügt 
+    console.log(monsterArray[0].monsterExperience);
     monsterGenerateHTML(); // Triggere die Generierung von HTML
 }
 // Generiert HTML-Elemente, welche dann einem Element untergeordnet werden. Erzeugt ebenfalls einen Event-Listener auf dem Button.
@@ -115,8 +116,8 @@ function generateMonsterHitPoints() {
 // Wird für die Erstellung der Monster-Lebenspunkte aufgerufen.
 // Liefert eine variierende Zahl zurück.
 function generateMonsterXP() {
-    // Diese Funktion gibt eine zufällige ganze Zahl (zwischen 0 und 350) + 100 zurück.
-    let tempMonsterXP = 100 + getRNGNumber(350);
+    // Diese Funktion gibt eine zufällige ganze Zahl (zwischen 0 und 450) + 100 zurück.
+    let tempMonsterXP = 100 + getRNGNumber(450);
     return tempMonsterXP;
 }
 // Wird für die Erstellung der Monster-Modifizierer aufgerufen.

@@ -61,7 +61,7 @@ window.onload = function () {
 }
 
 
-//console.log(document.getElementById("monsterSpawner").innerHTML);
+console.log("" + document.getElementById("monsterSpawner").innerHTML);
 
 
 // Die Hauptfunktion, um ein Monster zu erstellen. Wird von einem Button ausgerufen.
@@ -86,6 +86,7 @@ function generateMonster()
     };
 
     monsterArray.push(newMonster);                                      // Monster wird erst in diesem Schritt zu dem Array hinzugefügt 
+    console.log(monsterArray[0].monsterExperience); 
     monsterGenerateHTML();                                              // Triggere die Generierung von HTML
 }
 
