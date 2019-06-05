@@ -58,10 +58,11 @@ console.log(monsterArray ); // Gebe das Monster-Array einmal zu beginn aus. Es s
 window.onload = function () {
     document.getElementById("monsterSpawner").addEventListener("click", generateMonster, false);
     updatePlayerLevel(); // Zu Anfang wird durch eine Funktion ein HTML-Element mit Inhalt befüllt.
+    console.log("" + document.getElementById("monsterSpawner").innerHTML);
 }
 
 
-console.log("" + document.getElementById("monsterSpawner").innerHTML);
+
 
 
 // Die Hauptfunktion, um ein Monster zu erstellen. Wird von einem Button ausgerufen.
