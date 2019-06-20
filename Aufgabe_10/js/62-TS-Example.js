@@ -222,6 +222,7 @@ function fightMonster(_index) {
 }
 // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
 function updatePlayerLevel(XPchange) {
+    let oldplayerLevel = playerLevel;
     playerXP += XPchange;
     if ((Math.floor(playerXP / playerXPperLevel) + 1) >= 1) {
         playerLevel = Math.floor(playerXP / playerXPperLevel) + 1;
@@ -229,7 +230,7 @@ function updatePlayerLevel(XPchange) {
     let extendedXP = playerXPperLevel * playerLevel;
     document.getElementById("xpCounter").innerHTML = "Player-Level: " + playerLevel + " (XP: " + playerXP + " / " + extendedXP + ")"; // Baue den String für die Spieler-Info zusammen
     console.log("Spieler " + playerName + " hat nun Level " + playerLevel + " mit " + playerXP + " (" + playerXPperLevel + " pro Level)"); // Spieler-Level in der Konsole.
-    if (playerLevel == 20) {
+    if (playerLevel == 20 && playerLevel > oldplayerLevel) {
         alert("Level 20! Du hast gewonnen! Jetzt kannst du sinnlos weiterspielen...");
     }
 }
