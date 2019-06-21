@@ -98,12 +98,16 @@ function monsterGenerateHTML(monsterArrayPosition) {
     monsterImg.setAttribute("src", "imgs/" + monsterArray[monsterArrayPosition].monsterImage); // Der Pfad für das Bild muss über setAttribute festgelegt werden. Der Bildpfad kann natürlich auch anders aussehen.
     monsterImg.setAttribute("alt", "Schreckliches Monster"); // Das alt für das Bild wird hier festgelegt.
     holdingDiv.appendChild(monsterImg); // Füge das Bild zu dem holding-div hinzu (<div>, welche ein paar Zeilen zuvor erstellt worden ist)
+    let monsterHealth = document.createElement("p");
+    monsterHealth.innerHTML = "Health Points: ";
+    for (let i = 1; i <= monsterArray[monsterArrayPosition].monsterHealthPoints; i++) {
+        let healthPoint = document.createElement("span");
+        monsterHealth.appendChild(healthPoint);
+    }
+    holdingDiv.appendChild(monsterHealth);
     let monsterLev = document.createElement("p");
     monsterLev.innerHTML = "Level: " + monsterArray[monsterArrayPosition].monsterLevel;
     holdingDiv.appendChild(monsterLev);
-    let monsterHealth = document.createElement("p");
-    monsterHealth.innerHTML = "Health Points: " + monsterArray[monsterArrayPosition].monsterHealthPoints;
-    holdingDiv.appendChild(monsterHealth);
     let monsterXP = document.createElement("p");
     monsterXP.innerHTML = "XP: " + monsterArray[monsterArrayPosition].monsterExperience;
     holdingDiv.appendChild(monsterXP);
@@ -151,7 +155,7 @@ function generateMonsterImage() {
 // Liefert eine variierende Zahl zurück.
 function generateMonsterHealthPoints() {
     // Diese Funktion gibt eine zufällige ganze Zahl (zwischen 0 und 10) + 1 zurück.
-    let tempMonsterHP = 1 + getRNGNumber(10);
+    let tempMonsterHP = 1 + getRNGNumber(5);
     return tempMonsterHP;
 }
 // Wird für die Erstellung der Monster-Lebenspunkte aufgerufen.
@@ -210,10 +214,17 @@ function fightWeakestMonster() {
 function fightMonster(_index) {
     console.log(monsterArray);
     if (playerLevel > monsterArray[_index].monsterLevel) {
-        console.log("Spieler kämpft gegen Monster und gewinnt!");
-        updatePlayerLevel(monsterArray[_index].monsterExperience);
-        monsterArray.splice(_index, 1);
-        updateHTML();
+        if (monsterArray[_index].monsterHealthPoints == 1) {
+            console.log("Spieler kämpft gegen Monster und gewinnt!");
+            updatePlayerLevel(monsterArray[_index].monsterExperience);
+            monsterArray.splice(_index, 1);
+            updateHTML();
+        }
+        else {
+            console.log("Monster verliert einen Lebenspunkt!");
+            monsterArray[_index].monsterHealthPoints -= 1;
+            updateHTML();
+        }
     }
     else if (playerLevel < monsterArray[_index].monsterLevel) {
         console.log("Das Monster weigert sich zu verschwinden.");
