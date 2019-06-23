@@ -191,8 +191,11 @@ function fightAllWeakMonsters() {
     for (let i = 0; i < monsterArray.length; i++) {
         let prevPlayerXP = 0;
         if (thisLevel > monsterArray[i].monsterLevel) {
+            let monsterHP = monsterArray[i].monsterHealthPoints;
             fightMonster(i);
-            i = i - 1;
+            if (monsterHP > 1) {
+                i = i - 1;
+            }
         }
         if (i >= monsterArray.length) {
             break;
@@ -234,7 +237,12 @@ function fightMonster(_index) {
 // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
 function updatePlayerLevel(XPchange) {
     let oldplayerLevel = playerLevel;
-    playerXP += XPchange;
+    if ((playerXP + XPchange) <= 0) {
+        playerXP = 0;
+    }
+    else {
+        playerXP += XPchange;
+    }
     if ((Math.floor(playerXP / playerXPperLevel) + 1) >= 1) {
         playerLevel = Math.floor(playerXP / playerXPperLevel) + 1;
     }
