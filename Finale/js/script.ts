@@ -102,21 +102,21 @@ function playThisCard(cardToPlay : Card, index : number) {
 
 function takeCard() {
     if (currentPlayer && alreadyTookCard == false && playableCardsCount() == 0){
-        if(cardStack.length >0){
-            playerCards.push(cardStack[cardStack.length-1]);
-            cardStack.splice(cardStack.length-1,1);
-            updateHtml(playerCards);
-            updateHtml(cardStack);
-            alreadyTookCard = true;
-            console.log(cardStack);
-        }
-        else{
+        // Bei leerem Aufnahmestapel neu mischen
+        if(cardStack.length==0){
             document.getElementById("currentMove").innerHTML = "Der Ablagestapel ist leer und wird aus den gespielten Karten neu zusammengemischt!";
             cardStack = shuffle(activeCards.splice(activeCards.length-1,1));
             activeCards = [currentCard,];
             updateHtml(cardStack);
             updateHtml(activeCards);
         }
+        playerCards.push(cardStack[cardStack.length-1]);
+        cardStack.splice(cardStack.length-1,1);
+        updateHtml(playerCards);
+        updateHtml(cardStack);
+        alreadyTookCard = true;
+        console.log(cardStack);
+        
 
         if(playerCards[playerCards.length-1].cardColor != currentCard.cardColor && playerCards[playerCards.length-1].cardValency != currentCard.cardValency){
             currentPlayer = false;
@@ -156,6 +156,15 @@ function opponent() {
     }
     // Fall 2: Gegner kann nicht legen, nimmt eine Karte auf und versucht diese abzulegen
     if (couldLay == false){
+
+        if(cardStack.length==0){
+            document.getElementById("currentMove").innerHTML = "Der Ablagestapel ist leer und wird aus den gespielten Karten neu zusammengemischt!";
+            cardStack = shuffle(activeCards.splice(activeCards.length-1,1));
+            activeCards = [currentCard,];
+            updateHtml(cardStack);
+            updateHtml(activeCards);
+        }
+        
         computerCards.push(cardStack[cardStack.length-1]);
         cardStack.splice(cardStack.length-1,1);
         document.getElementById("currentMove").innerHTML = "Gegner nimmt eine Karte auf!";
