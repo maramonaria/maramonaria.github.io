@@ -91,6 +91,7 @@ function playThisCard(cardToPlay : Card, index : number) {
             }
             else{
                 document.getElementById("currentMove").innerHTML = "Dein Gegner ist an der Reihe!";
+                alreadyTookCard = false;
                 opponent();
             }
         }
@@ -101,35 +102,33 @@ function playThisCard(cardToPlay : Card, index : number) {
 }
 
 function takeCard() {
-    if (currentPlayer && alreadyTookCard == false && playableCardsCount() == 0){
-        // Bei leerem Aufnahmestapel neu mischen
-        if(cardStack.length==0){
-            document.getElementById("currentMove").innerHTML = "Der Ablagestapel ist leer und wird aus den gespielten Karten neu zusammengemischt!";
-            cardStack = shuffle(activeCards.splice(activeCards.length-1,1));
-            activeCards = [currentCard,];
+    if (currentPlayer){
+        if (alreadyTookCard == false && playableCardsCount() == 0){
+            // Bei leerem Aufnahmestapel neu mischen
+            if(cardStack.length==0){
+                reshuffleStack();
+            }
+            playerCards.push(cardStack[cardStack.length-1]);
+            cardStack.splice(cardStack.length-1,1);
+            updateHtml(playerCards);
             updateHtml(cardStack);
-            updateHtml(activeCards);
+            alreadyTookCard = true;
+            console.log(cardStack);
+            
+    
+            if(playerCards[playerCards.length-1].cardColor != currentCard.cardColor && playerCards[playerCards.length-1].cardValency != currentCard.cardValency){
+                currentPlayer = false;
+                document.getElementById("currentMove").innerHTML = "Dein Gegner ist an der Reihe!";
+                alreadyTookCard = false;
+                opponent();
+            }
         }
-        playerCards.push(cardStack[cardStack.length-1]);
-        cardStack.splice(cardStack.length-1,1);
-        updateHtml(playerCards);
-        updateHtml(cardStack);
-        alreadyTookCard = true;
-        console.log(cardStack);
-        
-
-        if(playerCards[playerCards.length-1].cardColor != currentCard.cardColor && playerCards[playerCards.length-1].cardValency != currentCard.cardValency){
-            currentPlayer = false;
-            document.getElementById("currentMove").innerHTML = "Dein Gegner ist an der Reihe!";
-            alreadyTookCard = false;
-            opponent();
+        else if(playableCardsCount() > 0){
+            document.getElementById("currentMove").innerHTML = "Du musst keine Karte aufnehmen!";
         }
-    }
-    else if(playableCardsCount() > 0){
-        document.getElementById("currentMove").innerHTML = "Du musst keine Karte aufnehmen!";
-    }
-    else if (alreadyTookCard){
-        document.getElementById("currentMove").innerHTML = "Du hast schon eine Karte aufgenommen!";
+        else if (alreadyTookCard){
+            document.getElementById("currentMove").innerHTML = "Du hast schon eine Karte aufgenommen!";
+        }
     }
 }
 
@@ -145,26 +144,23 @@ function opponent() {
             setTimeout(function () {updateHtml(activeCards); updateHtml(computerCards);},1500);
             // Dann ist der Spieler wieder an der Reihe
             setTimeout(function(){document.getElementById("currentMove").innerHTML = "Du bist dran!"; currentPlayer = true;}, 1600);
+            //setze Signalwort auf true, sodass klar ist, dass eine Karte gelegt werden konnte
             couldLay = true;
 
-            // Überprüfe ob Gegner keine Karten mehr hat
+            // Überprüfe ob Gegner keine Karten mehr hat, also gewonnen hat
             if (computerCards.length == 0){
                 setTimeout(function() {document.getElementById("currentMove").innerHTML = "Du hast verloren!"; clearAll()},1600);
             }
             break;
         }
     }
-    // Fall 2: Gegner kann nicht legen, nimmt eine Karte auf und versucht diese abzulegen
+    // Fall 2: Gegner kann nicht legen, nimmt eine Karte auf und versucht diese abzulegen (Signalwort ist noch auf false)
     if (couldLay == false){
 
         if(cardStack.length==0){
-            document.getElementById("currentMove").innerHTML = "Der Ablagestapel ist leer und wird aus den gespielten Karten neu zusammengemischt!";
-            cardStack = shuffle(activeCards.splice(activeCards.length-1,1));
-            activeCards = [currentCard,];
-            updateHtml(cardStack);
-            updateHtml(activeCards);
+            reshuffleStack();
         }
-        
+
         computerCards.push(cardStack[cardStack.length-1]);
         cardStack.splice(cardStack.length-1,1);
         document.getElementById("currentMove").innerHTML = "Gegner nimmt eine Karte auf!";
@@ -191,6 +187,18 @@ function playableCardsCount() : number {
         }
     }
     return count;
+}
+
+function reshuffleStack() {
+    document.getElementById("currentMove").innerHTML = "Der Ablagestapel ist leer und wird aus den gespielten Karten neu zusammengemischt!";
+    activeCards.splice(activeCards.length-1,1);
+    console.log("ACTIVE", activeCards);
+    console.log("cardStack", cardStack);
+    cardStack = shuffle(activeCards);
+    console.log("cardstack2",cardStack);
+    activeCards = [currentCard];
+    updateHtml(cardStack);
+    updateHtml(activeCards);
 }
 
 function updateHtml(array : Card[]) {
