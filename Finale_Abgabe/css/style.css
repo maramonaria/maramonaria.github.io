@@ -1,0 +1,170 @@
+body{
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    font-size: 1em;
+}
+header{
+    width: 100vw;
+    background-color: #929292;
+}
+main{
+    background-color: #00bebe;
+    clear:both;
+    width: 90%;
+    margin-left: 5%;
+    height: 94%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+p{
+    color: #000000;
+    padding: 0.5em;
+}
+#computer, #player{
+    clear:both;
+    background-color: #90ceca;
+    margin-left: 4.3%;
+    padding: 10px;
+    height: 190px;
+    width: 90%;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-right: 0.2em solid #3e8a8a;
+    border-bottom: 0.2em solid #3e8a8a;
+}
+
+#player{
+    background-color: #cace90;
+    border-right: 0.2em solid #999844;
+    border-bottom: 0.2em solid #999844;
+}
+#stack{
+    float:left;
+    height: 150px;
+    width:100px;
+    background-color: #009999;
+    border: 3px solid #78ffbb;
+    border-radius: 11px;
+    margin: 2%;
+    margin-left: 4.3%;
+}
+
+#currentMove{
+    float:left;
+    width: 270px;
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-left: 5%;
+    margin-top: 7%;
+    
+}
+
+#active{
+    float:left;
+    height: 150px;
+    width:100px;
+    background-color: #009999;
+    border-radius: 11px;
+    border: 3px solid #ffae78;
+    margin: 2%;
+}
+
+#gamestart{
+    float:left;
+    font-size: 1.2em;
+    background-color: #b46363;
+    color: rgb(255, 255, 255);
+    padding: 0.5%;
+    margin: 6.5%;
+    margin-left: 15%;
+}
+
+.card {
+    float:left;
+    width: 80px;
+    height: 130px;
+    border: 10px solid #ffffff;
+    border-radius: 8px;
+}
+.backside img {
+    width: 80px;
+    height:130px;
+}
+
+#player .card, #computer .card{
+    margin-left: 1%;
+}
+
+#active .card, #stack .card{
+    position: absolute;
+}
+
+.blue {
+    background-color: #0051ff;
+}
+.purple {
+    background-color: #984bc4;
+}
+.red {
+    background-color: #d13d49;
+}
+.orange{
+    background-color: #ec8525;
+}
+
+.card p{
+    float:left;
+}
+
+.topleft{
+    color: white;
+    margin-top: -0.25em;
+}
+.topright{
+    top: 0px;
+    right:0px;
+    color: white;
+    margin-top: -0.25em;
+    margin-left: 1.8em;
+}
+.middle{
+    clear: both;
+    background-color: #ffffff;
+    border-radius: 100%;
+    font-size: 2em;
+    margin-left: 19.5%;
+    margin-top: -0.45em;
+}
+.orange .middle{
+    color: #ec8525;
+}
+.blue .middle{
+    color: #0051ff;
+}
+.red .middle{
+    color:#d13d49;
+}
+.purple .middle{
+    color: #984bc4;
+}
+.bottomleft{
+    transform: rotate(180deg);
+    color: #ffffff;
+    margin-top: -1.9em;
+}
+.bottomright{
+    transform: rotate(180deg);
+    color: #ffffff;
+    margin-left: 1.8em;
+    margin-top: -1.9em;
+}
+
+#computer .cardtransition{
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    margin-top: 2em;
+}
