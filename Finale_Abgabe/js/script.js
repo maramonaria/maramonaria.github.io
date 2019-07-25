@@ -64,7 +64,7 @@ function playThisCard(cardToPlay, index) {
             updateHtml(activeCards);
             // Überprüfe ob Spieler noch Karten hat, also ob die gelegte Karte seine letzte war
             if (playerCards.length == 0) {
-                document.getElementById("currentMove").innerHTML = "Du hast gewonnen!";
+                setTimeout(function () { document.getElementById("currentMove").innerHTML = "Du hast gewonnen!"; }, 2000);
                 clearAll();
             }
             else {
@@ -120,13 +120,15 @@ function opponent() {
             computerCards.splice(i, 1);
             document.getElementById("currentMove").innerHTML = "Der Gegner legt eine Karte ab!";
             setTimeout(function () { updateHtml(activeCards); updateHtml(computerCards); }, 1500);
-            // Dann ist der Spieler wieder an der Reihe
-            setTimeout(function () { document.getElementById("currentMove").innerHTML = "Du bist dran!"; currentPlayer = true; }, 1600);
-            //setze Signalwort auf true, sodass klar ist, dass eine Karte gelegt werden konnte
-            couldLay = true;
             // Überprüfe ob Gegner keine Karten mehr hat, also gewonnen hat
             if (computerCards.length == 0) {
-                setTimeout(function () { document.getElementById("currentMove").innerHTML = "Du hast verloren!"; clearAll(); }, 1600);
+                setTimeout(function () { document.getElementById("currentMove").innerHTML = "Du hast verloren!"; clearAll(); }, 2000);
+            }
+            else {
+                // Dann ist der Spieler wieder an der Reihe
+                setTimeout(function () { document.getElementById("currentMove").innerHTML = "Du bist dran!"; currentPlayer = true; }, 1500);
+                //setze Signalwort auf true, sodass klar ist, dass eine Karte gelegt werden konnte
+                couldLay = true;
             }
             break;
         }
@@ -139,12 +141,12 @@ function opponent() {
         computerCards.push(cardStack[cardStack.length - 1]);
         cardStack.splice(cardStack.length - 1, 1);
         document.getElementById("currentMove").innerHTML = "Gegner nimmt eine Karte auf!";
-        setTimeout(function () { updateHtml(cardStack); updateHtml(computerCards); }, 1600);
+        setTimeout(function () { updateHtml(cardStack); updateHtml(computerCards); }, 1200);
         // Aufgenommene Karte ist legbar
         if (computerCards[computerCards.length - 1].cardColor == currentCard.cardColor || computerCards[computerCards.length - 1].cardValency == currentCard.cardValency) {
             currentCard = computerCards[computerCards.length - 1];
             activeCards.push(currentCard);
-            setTimeout(function () { computerCards.splice(computerCards.length - 1, 1); document.getElementById("currentMove").innerHTML = "Der Gegner legt eine Karte ab!"; }, 2000);
+            setTimeout(function () { computerCards.splice(computerCards.length - 1, 1); document.getElementById("currentMove").innerHTML = "Der Gegner legt eine Karte ab!"; }, 1250);
             setTimeout(function () { updateHtml(computerCards); updateHtml(activeCards); }, 2000);
         }
         // Dann ist der Spieler wieder an der Reihe
