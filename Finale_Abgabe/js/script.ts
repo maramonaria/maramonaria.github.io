@@ -86,9 +86,7 @@ function playThisCard(cardToPlay : Card, index : number) {
 
             // Überprüfe ob Spieler noch Karten hat, also ob die gelegte Karte seine letzte war
             if (playerCards.length == 0){
-                setTimeout(function () {document.getElementById("currentMove").innerHTML = "Du hast gewonnen!"},2000);
-                
-                clearAll();
+                setTimeout(function () {document.getElementById("currentMove").innerHTML = "Du hast gewonnen!"; clearAll();},500);
             }
             else{
                 document.getElementById("currentMove").innerHTML = "Dein Gegner ist an der Reihe!";
@@ -140,7 +138,8 @@ function opponent() {
     for(let i = 0; i < computerCards.length; i++){
         // Fall 1: Gegner kann eine Karte legen
         if(computerCards[i].cardColor == currentCard.cardColor || computerCards[i].cardValency == currentCard.cardValency){
-            document.getElementById(computerCards[i].cardColor + computerCards[i].cardValency).classList.add('cardtransition');
+
+            setTimeout(function () {document.getElementById(computerCards[i].cardColor + computerCards[i].cardValency).classList.add('cardtransition');},500);
             currentCard = computerCards[i];
             activeCards.push(currentCard);
             computerCards.splice(i,1);
@@ -154,9 +153,9 @@ function opponent() {
             else{
                 // Dann ist der Spieler wieder an der Reihe
                 setTimeout(function(){document.getElementById("currentMove").innerHTML = "Du bist dran!"; currentPlayer = true;}, 1500);
-                //setze Signalwort auf true, sodass klar ist, dass eine Karte gelegt werden konnte
-                couldLay = true;
             }
+            //setze Signalwort auf true, sodass klar ist, dass eine Karte gelegt werden konnte
+            couldLay = true;
             break;
         }
     }
@@ -176,12 +175,14 @@ function opponent() {
             
             currentCard = computerCards[computerCards.length-1];
             activeCards.push(currentCard);
+
+            setTimeout(function(){document.getElementById(currentCard.cardColor + currentCard.cardValency).classList.add('cardtransition');},1300);
             
-            setTimeout(function() {computerCards.splice(computerCards.length-1,1); document.getElementById("currentMove").innerHTML = "Der Gegner legt eine Karte ab!";},1250);
-            setTimeout(function () {updateHtml(computerCards);updateHtml(activeCards);},2000);
+            setTimeout(function() {computerCards.splice(computerCards.length-1,1); document.getElementById("currentMove").innerHTML = "Der Gegner legt eine Karte ab!";},1300);
+            setTimeout(function () {updateHtml(computerCards);updateHtml(activeCards);},2300);
         }
         // Dann ist der Spieler wieder an der Reihe
-        setTimeout(function(){document.getElementById("currentMove").innerHTML = "Du bist dran!";currentPlayer = true;}, 2000);
+        setTimeout(function(){document.getElementById("currentMove").innerHTML = "Du bist dran!";currentPlayer = true;}, 2300);
 
     }
 }
