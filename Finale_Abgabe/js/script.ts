@@ -139,10 +139,12 @@ function opponent() {
         // Fall 1: Gegner kann eine Karte legen
         if(computerCards[i].cardColor == currentCard.cardColor || computerCards[i].cardValency == currentCard.cardValency){
 
-            setTimeout(function () {document.getElementById(computerCards[i].cardColor + computerCards[i].cardValency).classList.add('cardtransition');},500);
+            
             currentCard = computerCards[i];
             activeCards.push(currentCard);
-            computerCards.splice(i,1);
+            setTimeout(function () {document.getElementById(computerCards[i].cardColor + computerCards[i].cardValency).classList.add('cardtransition');
+            computerCards.splice(i,1);},500);
+            
             document.getElementById("currentMove").innerHTML = "Der Gegner legt eine Karte ab!";
             setTimeout(function () {updateHtml(activeCards); updateHtml(computerCards);},1500);
 
